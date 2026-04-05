@@ -1,65 +1,72 @@
-<html lang="pt-br">
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pixel Blade: Shadow of the Crystals</title>
 
-    <div class="grid">
-        <div>
-            <p><!-- DESCRIÇÃO DO PERSONAGEM --></p>
-        </div>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
 
-        <div>
-            <p>Força</p>
-            <div class="barra"><div class="valor" style="width:80%"></div></div>
+<body>
 
-            <p>Defesa</p>
-            <div class="barra"><div class="valor" style="width:70%"></div></div>
+<nav>
+  <a href="#hero">INÍCIO</a>
+  <a href="#historia">HISTÓRIA</a>
+  <a href="#cristais">CRISTAIS</a>
+  <a href="#cavaleiro">HERÓI</a>
+  <a href="#jogar">JOGAR</a>
+</nav>
 
-            <p>Velocidade</p>
-            <div class="barra"><div class="valor" style="width:50%"></div></div>
-        </div>
+<section id="hero" class="hero">
+  <h1>Pixel Blade: Shadow of the Crystals</h1>
+  <p class="sub">Um cavaleiro. Uma dungeon. Um destino.</p>
+  <a href="#" class="botao">JOGAR AGORA</a>
+</section>
+
+<section id="historia">
+  <h2>HISTÓRIA</h2>
+  <p>Três cristais mantinham o equilíbrio do reino.</p>
+  <p>Foram roubados e levados para uma dungeon sombria.</p>
+  <p>Agora, Aldric deve recuperá-los sozinho.</p>
+</section>
+
+<section id="cristais">
+  <h2>CRISTAIS</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3>FORÇA</h3>
+      <p>Controla o emocional e a estabilidade de quem o porta</p>
     </div>
-</section>
 
-<section id="itens" class="box fade">
-    <h2>Cristais</h2>
-
-    <div class="cards">
-        <div class="card">
-            <h3>🔵 Azul</h3>
-            <p><!-- DESCRIÇÃO --></p>
-        </div>
-
-        <div class="card">
-            <h3>🟢 Verde</h3>
-            <p><!-- DESCRIÇÃO --></p>
-        </div>
-
-        <div class="card">
-            <h3>🔴 Vermelho</h3>
-            <p><!-- DESCRIÇÃO --></p>
-        </div>
+    <div class="card">
+      <h3>VIDA</h3>
+      <p>Representa a natureza</p>
     </div>
+
+    <div class="card">
+      <h3>FOGO</h3>
+      <p>Poder destrutivo</p>
+    </div>
+  </div>
 </section>
 
-<section id="jogar" class="box fade center">
-    <h2>Jogar Agora</h2>
-    <p><!-- TEXTO CHAMANDO --></p>
-    <a href="<!-- LINK DO JOGO -->" target="_blank" class="btn">▶ INICIAR</a>
+<section id="cavaleiro">
+  <h2>CAVALEIRO ALDRIC</h2>
+  <p>Guerreiro solitário que enfrenta a dungeon.</p>
+
+  <div class="status">
+    <p>HP</p>
+    <div class="barra"><div class="hp"></div></div>
+
 </section>
 
-<footer>
-    <p>© 2026 Pixel Knight: Shards</p>
-</footer>
-
-<script>
-const elements = document.querySelectorAll('.fade');
-window.addEventListener('scroll', () => {
-  elements.forEach(el => {
-    const top = el.getBoundingClientRect().top;
-    if(top < window.innerHeight - 50){
-      el.classList.add('show');
-    }
-  });
-});
-</script>
+<section id="jogar">
+  <h2>ENTRE NA DUNGEON</h2>
+  <a href="#" class="botao">JOGAR</a>
+</section>
 
 </body>
 </html>
