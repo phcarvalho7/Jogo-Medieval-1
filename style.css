@@ -1,0 +1,80 @@
+body {
+    box-shadow: 0 0 20px orange;
+}
+
+.sub {
+    margin-top: 20px;
+    font-size: 10px;
+    color: #aaa;
+}
+
+.box {
+    margin: 30px;
+    padding: 30px;
+    border: 2px solid orange;
+    background: #111;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.barra {
+    background: #333;
+    height: 10px;
+    margin-bottom: 15px;
+}
+
+.valor {
+    height: 100%;
+    background: orange;
+}
+
+.cards {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.card {
+    border: 2px solid orange;
+    padding: 20px;
+    width: 150px;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 30px;
+    background: orange;
+    color: black;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+.btn:hover {
+    background: yellow;
+}
+
+.fade {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 0.6s;
+}
+
+.fade.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: black;
+    margin-top: 40px;
+}

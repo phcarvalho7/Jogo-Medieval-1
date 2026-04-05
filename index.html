@@ -1,15 +1,65 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site Jogo Medieval</title>
-</head>
-<body>
+<html lang="pt-br">
 
-    <h1>Bem-vindo ao meu site!</h1>
-    <p>Este é o começo de uma página HTML.</p>
-    <p>Esta é a continuação do texto.</p>
+    <div class="grid">
+        <div>
+            <p><!-- DESCRIÇÃO DO PERSONAGEM --></p>
+        </div>
+
+        <div>
+            <p>Força</p>
+            <div class="barra"><div class="valor" style="width:80%"></div></div>
+
+            <p>Defesa</p>
+            <div class="barra"><div class="valor" style="width:70%"></div></div>
+
+            <p>Velocidade</p>
+            <div class="barra"><div class="valor" style="width:50%"></div></div>
+        </div>
+    </div>
+</section>
+
+<section id="itens" class="box fade">
+    <h2>Cristais</h2>
+
+    <div class="cards">
+        <div class="card">
+            <h3>🔵 Azul</h3>
+            <p><!-- DESCRIÇÃO --></p>
+        </div>
+
+        <div class="card">
+            <h3>🟢 Verde</h3>
+            <p><!-- DESCRIÇÃO --></p>
+        </div>
+
+        <div class="card">
+            <h3>🔴 Vermelho</h3>
+            <p><!-- DESCRIÇÃO --></p>
+        </div>
+    </div>
+</section>
+
+<section id="jogar" class="box fade center">
+    <h2>Jogar Agora</h2>
+    <p><!-- TEXTO CHAMANDO --></p>
+    <a href="<!-- LINK DO JOGO -->" target="_blank" class="btn">▶ INICIAR</a>
+</section>
+
+<footer>
+    <p>© 2026 Pixel Knight: Shards</p>
+</footer>
+
+<script>
+const elements = document.querySelectorAll('.fade');
+window.addEventListener('scroll', () => {
+  elements.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if(top < window.innerHeight - 50){
+      el.classList.add('show');
+    }
+  });
+});
+</script>
 
 </body>
 </html>
