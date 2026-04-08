@@ -2,266 +2,118 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Pixel Blade: Shadow of the Crystals</title>
+
+
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet" />
+
   <link rel="stylesheet" href="style.css" />
-  <style>
-    /* ── EDITOR VISUAL ── */
-    #editor-toggle {
-      position: fixed;
-      bottom: 1.5rem;
-      right: 1.5rem;
-      z-index: 9999;
-      background: var(--dourado);
-      color: var(--fundo);
-      font-family: 'Press Start 2P', monospace;
-      font-size: 0.45rem;
-      border: 3px solid var(--dourado-claro);
-      padding: 0.6rem 1rem;
-      cursor: pointer;
-      box-shadow: 4px 4px 0 #000;
-    }
-    #editor-toggle:hover { background: var(--dourado-claro); }
-
-    #editor-panel {
-      display: none;
-      position: fixed;
-      top: 0; right: 0;
-      width: 320px; height: 100vh;
-      background: #0d0a06;
-      border-left: 4px solid var(--dourado-escuro);
-      z-index: 9998;
-      overflow-y: auto;
-      padding: 1.5rem 1.2rem;
-      box-shadow: -6px 0 20px rgba(0,0,0,0.8);
-    }
-    #editor-panel.aberto { display: block; }
-
-    .ed-titulo {
-      font-family: 'Press Start 2P', monospace;
-      font-size: 0.55rem;
-      color: var(--dourado);
-      margin-bottom: 1.2rem;
-      border-bottom: 2px solid var(--dourado-escuro);
-      padding-bottom: 0.8rem;
-    }
-    .ed-grupo { margin-bottom: 1.5rem; }
-    .ed-label {
-      font-family: 'Press Start 2P', monospace;
-      font-size: 0.4rem;
-      color: var(--dourado-escuro);
-      display: block;
-      margin-bottom: 0.4rem;
-    }
-    .ed-input, .ed-textarea {
-      width: 100%;
-      background: var(--fundo-claro);
-      border: 2px solid var(--dourado-escuro);
-      color: var(--texto);
-      font-family: 'VT323', monospace;
-      font-size: 1rem;
-      padding: 0.4rem 0.6rem;
-      outline: none;
-    }
-    .ed-input:focus, .ed-textarea:focus { border-color: var(--dourado); }
-    .ed-textarea { resize: vertical; min-height: 70px; }
-    .ed-cor { width: 100%; height: 32px; border: 2px solid var(--dourado-escuro); cursor: pointer; }
-    .ed-btn {
-      width: 100%;
-      background: var(--dourado);
-      color: var(--fundo);
-      font-family: 'Press Start 2P', monospace;
-      font-size: 0.45rem;
-      border: 2px solid var(--dourado-claro);
-      padding: 0.6rem;
-      cursor: pointer;
-      box-shadow: 3px 3px 0 #000;
-      margin-top: 0.5rem;
-    }
-    .ed-btn:hover { background: var(--dourado-claro); }
-    .ed-separador {
-      border: none;
-      border-top: 2px solid var(--dourado-escuro);
-      margin: 1rem 0;
-    }
-    .ed-aviso {
-      font-size: 0.85rem;
-      color: var(--texto-fraco);
-      margin-top: 1rem;
-      line-height: 1.4;
-    }
-    .ed-dia-badge {
-      font-family: 'Press Start 2P', monospace;
-      font-size: 0.4rem;
-      color: var(--dourado-escuro);
-      border: 2px solid var(--dourado-escuro);
-      padding: 0.3rem 0.5rem;
-      display: inline-block;
-      margin-bottom: 1rem;
-    }
-  </style>
 </head>
 <body>
 
   <div class="scanlines"></div>
 
-  <!-- MENU -->
+
   <nav>
-    <span class="logo" id="logo-texto">[ ⚔ PIXEL BLADE: SHADOW OF THE CRYSTALS ]</span>
+    <span class="logo">[ ⚔ PIXEL BLADE ]</span>
+
     <ul>
       <li><a href="#hero">INÍCIO</a></li>
+      <li><a href="#historia">LENDA</a></li>
       <li><a href="https://itch.io" target="_blank" class="nav-jogar">▶ JOGAR</a></li>
     </ul>
   </nav>
 
-  <!-- HERO -->
-  <section id="hero">
-    <div class="pixel-knight">
-      <div class="pk-helmet"></div>
-      <div class="pk-visor"></div>
-      <div class="pk-body"></div>
-      <div class="pk-sword"></div>
-      <div class="pk-shield"></div>
-      <div class="pk-legs"></div>
-    </div>
 
-    <p class="eyebrow" id="eyebrow-texto">&gt; UMA AVENTURA SOLITÁRIA NAS PROFUNDEZAS_</p>
-    <h1 id="hero-titulo">PIXEL BLADE:<br/>SHADOW OF THE CRYSTALS</h1>
-    <p class="subtitulo" id="hero-subtitulo">— O CAVALEIRO DAS SOMBRAS —</p>
+  <section id="hero">
+
+
+    <img src="logo.png" alt="Logo Pixel Blade: Shadow of the Crystals" class="logo-img" />
+
     <div class="divisor-pixel"></div>
-    <p class="lore" id="hero-lore">
+
+    <p class="lore">
       Um reino à beira do colapso.<br/>
       Três cristais perdidos nas profundezas.<br/>
       Um cavaleiro enviado para o impossível.
     </p>
+
     <div class="hero-botoes">
-      <a href="https://itch.io" target="_blank" class="botao botao-destaque" id="btn-jogar">▶ JOGAR AGORA</a>
+      <a href="#historia" class="botao">[ A LENDA ]</a>
+      <a href="https://itch.io" target="_blank" class="botao botao-destaque">▶ JOGAR AGORA</a>
     </div>
+
     <p class="press-start">PRESS START</p>
   </section>
 
-  <!-- RODAPÉ -->
+  <section id="historia">
+    <div class="conteudo">
+
+      <span class="label">&gt; MISSÃO_001</span>
+
+      <h2>O ÚLTIMO CHAMADO</h2>
+
+      <div class="linha-pixel"></div>
+
+      <p>
+        Há muito tempo, os três Cristais do Reino guardavam o equilíbrio entre
+        o mundo dos vivos e as trevas que habitam sob a terra. Mas numa noite
+        sem lua, criaturas das profundezas roubaram as relíquias e as arrastaram
+        para os corredores esquecidos da Dungeon de Ashkarath.
+      </p>
+
+      <p>
+        Com o reino enfraquecendo a cada amanhecer, os nobres convocaram o
+        Cavaleiro Aldric — não por ser o mais poderoso, mas por ser o único
+        disposto a descer às profundezas sozinho, sem glória garantida,
+        sem promessa de retorno.
+      </p>
+
+      <p>
+        A dungeon é de nível baixo para quem enfrenta o mundo lá fora. Mas no
+        escuro, até um guerreiro experiente pode se perder — e os cristais
+        têm guardiões que não dormem.
+      </p>
+
+    </div>
+  </section>
+
+
   <footer>
     <span class="logo">[ ⚔ PIXEL BLADE: SHADOW OF THE CRYSTALS ]</span>
     <div class="divisor-pixel-footer"></div>
     <p>UM JOGO INDIE DE AVENTURA E DUNGEON CRAWLING</p>
-    <p class="creditos">FEITO COM ♥ · TODOS OS DIREITOS RESERVADOS</p>
+    <p class="creditos">FEITO POR PAULO</p>
   </footer>
 
-  <!-- EDITOR TOGGLE -->
-  <button id="editor-toggle" onclick="toggleEditor()">✏ EDITAR PÁGINA</button>
-
-  <!-- EDITOR PANEL -->
-  <div id="editor-panel">
-    <div class="ed-dia-badge">DIA 1 / 5</div>
-    <div class="ed-titulo">✏ EDITOR — HERO</div>
-
-    <div class="ed-grupo">
-      <span class="ed-label">TÍTULO DO JOGO (h1)</span>
-      <textarea class="ed-textarea" id="ed-hero-titulo" rows="2">PIXEL BLADE:\nSHADOW OF THE CRYSTALS</textarea>
-    </div>
-
-    <div class="ed-grupo">
-      <span class="ed-label">SUBTÍTULO</span>
-      <input class="ed-input" id="ed-hero-subtitulo" value="— O CAVALEIRO DAS SOMBRAS —">
-    </div>
-
-    <div class="ed-grupo">
-      <span class="ed-label">TEXTO DE ABERTURA (eyebrow)</span>
-      <input class="ed-input" id="ed-eyebrow" value="> UMA AVENTURA SOLITÁRIA NAS PROFUNDEZAS_">
-    </div>
-
-    <div class="ed-grupo">
-      <span class="ed-label">LORE (3 LINHAS)</span>
-      <textarea class="ed-textarea" id="ed-lore">Um reino à beira do colapso.
-Três cristais perdidos nas profundezas.
-Um cavaleiro enviado para o impossível.</textarea>
-    </div>
-
-    <div class="ed-grupo">
-      <span class="ed-label">TEXTO DO BOTÃO JOGAR</span>
-      <input class="ed-input" id="ed-btn-jogar" value="▶ JOGAR AGORA">
-    </div>
-
-    <div class="ed-grupo">
-      <span class="ed-label">LINK DO BOTÃO JOGAR</span>
-      <input class="ed-input" id="ed-btn-jogar-link" value="https://itch.io">
-    </div>
-
-    <hr class="ed-separador">
-
-    <div class="ed-grupo">
-      <span class="ed-label">COR DOURADA PRINCIPAL</span>
-      <input type="color" class="ed-cor" id="ed-cor-dourado" value="#c9a84c">
-    </div>
-
-    <div class="ed-grupo">
-      <span class="ed-label">COR DE FUNDO</span>
-      <input type="color" class="ed-cor" id="ed-cor-fundo" value="#0f0c08">
-    </div>
-
-    <hr class="ed-separador">
-
-    <button class="ed-btn" onclick="aplicarEdicoes()">[ APLICAR ALTERAÇÕES ]</button>
-    <button class="ed-btn" onclick="salvarHTML()" style="margin-top:0.4rem; background: var(--fundo-claro); color: var(--dourado); border-color: var(--dourado-escuro);">[ BAIXAR HTML EDITADO ]</button>
-
-    <p class="ed-aviso">▸ Altere os campos e clique em APLICAR para ver as mudanças.<br>▸ Clique em BAIXAR para salvar o arquivo com suas edições.</p>
-  </div>
 
   <script>
-    /* ── EDITOR ── */
-    function toggleEditor() {
-      document.getElementById('editor-panel').classList.toggle('aberto');
-    }
+    const textoStart = document.querySelector('.press-start');
 
-    function aplicarEdicoes() {
-      // Título
-      const titulo = document.getElementById('ed-hero-titulo').value.replace(/\\n/g, '<br/>');
-      document.getElementById('hero-titulo').innerHTML = titulo;
-
-      // Subtítulo
-      document.getElementById('hero-subtitulo').textContent = document.getElementById('ed-hero-subtitulo').value;
-
-      // Eyebrow
-      document.getElementById('eyebrow-texto').textContent = document.getElementById('ed-eyebrow').value;
-
-      // Lore
-      const loreLinhas = document.getElementById('ed-lore').value.split('\n');
-      document.getElementById('hero-lore').innerHTML = loreLinhas.join('<br/>');
-
-      // Botão
-      const btnEl = document.getElementById('btn-jogar');
-      btnEl.textContent = document.getElementById('ed-btn-jogar').value;
-      btnEl.href = document.getElementById('ed-btn-jogar-link').value;
-
-      // Cores
-      document.documentElement.style.setProperty('--dourado', document.getElementById('ed-cor-dourado').value);
-      document.documentElement.style.setProperty('--fundo', document.getElementById('ed-cor-fundo').value);
-    }
-
-    function salvarHTML() {
-      aplicarEdicoes();
-      const html = document.documentElement.outerHTML;
-      const blob = new Blob([html], { type: 'text/html' });
-      const a = document.createElement('a');
-      a.href = URL.createObjectURL(blob);
-      a.download = 'dia1-index.html';
-      a.click();
-    }
-
-    /* ── PRESS START BLINK ── */
-    const pressStart = document.querySelector('.press-start');
-    setInterval(() => {
-      pressStart.style.opacity = pressStart.style.opacity === '0' ? '1' : '0';
+    setInterval(function() {
+      if (textoStart.style.opacity === '0') {
+        textoStart.style.opacity = '1';
+      } else {
+        textoStart.style.opacity = '0';
+      }
     }, 600);
 
-    /* ── SCROLL REVEAL ── */
-    const elementos = document.querySelectorAll('.conteudo p');
-    const obs = new IntersectionObserver((ent) => {
-      ent.forEach(e => { if (e.isIntersecting) e.target.classList.add('visivel'); });
+    const observador = new IntersectionObserver(function(entradas) {
+      entradas.forEach(function(entrada) {
+        if (entrada.isIntersecting) {
+          entrada.target.classList.add('visivel');
+        }
+      });
     });
-    elementos.forEach(el => { el.classList.add('escondido'); obs.observe(el); });
+
+  
+    document.querySelectorAll('.conteudo p').forEach(function(paragrafo) {
+      paragrafo.classList.add('escondido'); 
+      observador.observe(paragrafo);        
+    });
   </script>
 
 </body>

@@ -1,59 +1,58 @@
-/* ══════════════════════════════
-   VARIÁVEIS DE CORES
-══════════════════════════════ */
+
 :root {
-  --dourado:       #c9a84c;
-  --dourado-claro: #e8c96a;
-  --dourado-escuro:#7a5f24;
-  --fundo:         #0f0c08;
-  --fundo-medio:   #1a1510;
-  --fundo-claro:   #2a2118;
-  --fundo-card:    #1e1912;
-  --texto:         #d4c5a0;
-  --texto-fraco:   #7a6a50;
-  --azul:          #4a90d9;
-  --verde:         #2ecc71;
-  --vermelho:      #e74c3c;
-  --hp-verde:      #3ddc5a;
-  --mp-azul:       #4a90d9;
+  --dourado:        #c9a84c;  
+  --dourado-claro:  #e8c96a;   
+  --dourado-escuro: #7a5f24;   
+  --fundo:          #0f0c08;  
+  --fundo-medio:    #1a1510;  
+  --fundo-claro:    #2a2118; 
+  --texto:          #d4c5a0;   
+  --texto-fraco:    #7a6a50;   
+  
 }
 
-/* ══════════════════════════════
-   RESET + FONTE PIXEL
-══════════════════════════════ */
+
+/* ══════════════════════════════════════════════════
+   RESET BÁSICO
+   Remove margens e paddings padrão do navegador
+   box-sizing: border-box faz padding não aumentar o tamanho
+══════════════════════════════════════════════════ */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  /* Desativa suavização de fonte para visual mais nítido/quadrado */
-  image-rendering: pixelated;
+  image-rendering: pixelated; 
 }
 
+
+/* ══════════════════════════════════════════════════
+   BODY - estilo geral da página
+══════════════════════════════════════════════════ */
 body {
   background-color: var(--fundo);
   color: var(--texto);
-  /* VT323 = fonte pixel art mais legível para textos longos */
-  font-family: 'VT323', monospace;
+  font-family: 'VT323', monospace; 
   font-size: 20px;
   line-height: 1.6;
-  overflow-x: hidden;
+  overflow-x: hidden; 
 }
 
-/* Títulos usam Press Start 2P = fonte clássica de arcade */
-h1, h2, h3, nav, .logo, .label, .eyebrow, .botao, .tipo, .nav-jogar {
+h1, h2, h3, nav, .logo, .label, .eyebrow, .botao, .nav-jogar {
   font-family: 'Press Start 2P', monospace;
 }
 
-/* ══════════════════════════════
-   SCANLINES (efeito de TV retrô)
-   Faixas horizontais semitransparentes
-══════════════════════════════ */
+
+/* ══════════════════════════════════════════════════
+   SCANLINES - efeito de TV antiga
+   position: fixed = fica fixo na tela mesmo ao rolar
+   pointer-events: none = não bloqueia cliques
+   repeating-linear-gradient = cria listras finas repetidas
+══════════════════════════════════════════════════ */
 .scanlines {
   position: fixed;
-  inset: 0;
+  inset: 0; 
   z-index: 999;
   pointer-events: none;
-  /* repeating-linear-gradient cria linhas finas repetidas */
   background: repeating-linear-gradient(
     to bottom,
     rgba(0, 0, 0, 0.08) 0px,
@@ -63,9 +62,13 @@ h1, h2, h3, nav, .logo, .label, .eyebrow, .botao, .tipo, .nav-jogar {
   );
 }
 
-/* ══════════════════════════════
-   NAVEGAÇÃO
-══════════════════════════════ */
+
+/* ══════════════════════════════════════════════════
+   NAVEGAÇÃO - barra do topo
+   position: sticky = gruda no topo ao rolar
+   display: flex = coloca elementos lado a lado
+   justify-content: space-between = um em cada extremo
+══════════════════════════════════════════════════ */
 nav {
   position: sticky;
   top: 0;
@@ -75,7 +78,6 @@ nav {
   justify-content: space-between;
   padding: 1rem 2rem;
   background-color: var(--fundo);
-  /* Borda inferior estilo pixel: 4px sólido */
   border-bottom: 4px solid var(--dourado-escuro);
   box-shadow: 0 4px 0 #000;
 }
@@ -86,6 +88,7 @@ nav {
   letter-spacing: 0.05em;
 }
 
+/* Remove os pontos da lista e coloca itens em linha */
 nav ul {
   list-style: none;
   display: flex;
@@ -104,13 +107,11 @@ nav a:hover {
   color: var(--dourado);
 }
 
-/* Botão jogar no menu */
+/* Botão especial de jogar no menu */
 .nav-jogar {
   background-color: var(--dourado);
-  color: var(--fundo) !important;
+  color: var(--fundo) !important; 
   padding: 0.4rem 0.8rem;
-  /* Sem border-radius: cantos quadrados = pixel art */
-  border-radius: 0;
   border: 2px solid var(--dourado-claro);
 }
 
@@ -118,21 +119,25 @@ nav a:hover {
   background-color: var(--dourado-claro) !important;
 }
 
-/* ══════════════════════════════
-   HERO
-══════════════════════════════ */
+
+/* ══════════════════════════════════════════════════
+   HERO - primeira seção da página
+   text-align: center = centraliza o conteúdo
+   position: relative = permite posicionar filhos
+   overflow: hidden = esconde o que sair dos limites
+══════════════════════════════════════════════════ */
 #hero {
   text-align: center;
-  padding: 5rem 2rem 4rem;
+  padding: 4rem 2rem 4rem;
   background-color: var(--fundo-medio);
   border-bottom: 4px solid var(--dourado-escuro);
   position: relative;
   overflow: hidden;
 }
 
-/* Grade de pontos no fundo do hero */
+/* Grade de pontos decorativa no fundo do hero */
 #hero::before {
-  content: '';
+  content: '';           
   position: absolute;
   inset: 0;
   background-image: radial-gradient(circle, var(--dourado-escuro) 1px, transparent 1px);
@@ -140,41 +145,21 @@ nav a:hover {
   opacity: 0.15;
 }
 
-.eyebrow {
-  font-size: 0.55rem;
-  letter-spacing: 0.1em;
-  color: var(--dourado-escuro);
+/* Logo da imagem */
+.logo-img {
+  width: 100%;
+  max-width: 600px;      
+  height: auto;         
   margin-bottom: 1.5rem;
-  position: relative;
+  position: relative;   
+  filter: drop-shadow(0 4px 24px rgba(201, 168, 76, 0.3)); 
 }
 
-#hero h1 {
-  font-size: clamp(1.2rem, 4vw, 2.2rem);
-  color: var(--dourado);
-  /* text-shadow empilhado = efeito de sombra pixel */
-  text-shadow:
-    4px 4px 0 #000,
-    -1px -1px 0 #7a5f24;
-  margin-bottom: 0.6rem;
-  line-height: 1.4;
-  position: relative;
-}
-
-.subtitulo {
-  font-size: 0.65rem;
-  color: var(--texto-fraco);
-  letter-spacing: 0.1em;
-  margin-bottom: 1.5rem;
-  position: relative;
-}
-
-/* Divisor feito de caracteres = estilo terminal/pixel */
+/* Divisor feito de símbolos repetidos via CSS */
 .divisor-pixel {
-  font-family: monospace;
   color: var(--dourado-escuro);
   margin: 0 auto 1.5rem;
   letter-spacing: 4px;
-  font-size: 0.9rem;
   position: relative;
 }
 
@@ -182,6 +167,7 @@ nav a:hover {
   content: '▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪';
 }
 
+/* Texto de lore (história curta) */
 .lore {
   max-width: 500px;
   margin: 0 auto 2.5rem;
@@ -190,120 +176,49 @@ nav a:hover {
   position: relative;
 }
 
+/* Container dos botões lado a lado */
 .hero-botoes {
   display: flex;
   gap: 1rem;
   justify-content: center;
-  flex-wrap: wrap;
+  flex-wrap: wrap;       
   position: relative;
 }
 
-/* Texto piscante "PRESS START" */
+/* Texto "PRESS START" que pisca via JavaScript */
 .press-start {
   font-family: 'Press Start 2P', monospace;
   font-size: 0.6rem;
   color: var(--dourado-escuro);
   margin-top: 2rem;
-  transition: opacity 0.1s;
+  transition: opacity 0.1s; 
   position: relative;
 }
 
-/* ══════════════════════════════
-   BONECO PIXEL ART (CSS puro)
-   Feito com divs simples
-══════════════════════════════ */
-.pixel-knight {
-  position: relative;
-  width: 80px;
-  margin: 0 auto 2rem;
-  height: 100px;
-}
 
-.pk-helmet {
-  width: 40px;
-  height: 16px;
-  background: var(--fundo-claro);
-  border: 3px solid var(--dourado-escuro);
-  margin: 0 auto;
-}
-
-.pk-visor {
-  width: 30px;
-  height: 10px;
-  background: var(--dourado);
-  margin: 0 auto;
-  opacity: 0.7;
-}
-
-.pk-body {
-  width: 48px;
-  height: 36px;
-  background: var(--fundo-claro);
-  border: 3px solid var(--dourado-escuro);
-  margin: 2px auto 0;
-}
-
-.pk-sword {
-  position: absolute;
-  right: 0;
-  top: 20px;
-  width: 6px;
-  height: 50px;
-  background: var(--texto-fraco);
-  border: 1px solid #888;
-}
-
-.pk-shield {
-  position: absolute;
-  left: 2px;
-  top: 30px;
-  width: 18px;
-  height: 22px;
-  background: var(--dourado-escuro);
-  border: 2px solid var(--dourado);
-}
-
-.pk-legs {
-  display: flex;
-  gap: 6px;
-  justify-content: center;
-  margin-top: 2px;
-}
-
-.pk-legs::before,
-.pk-legs::after {
-  content: '';
-  width: 16px;
-  height: 24px;
-  background: var(--fundo-claro);
-  border: 2px solid var(--dourado-escuro);
-  display: block;
-}
-
-/* ══════════════════════════════
+/* ══════════════════════════════════════════════════
    BOTÕES
-══════════════════════════════ */
+══════════════════════════════════════════════════ */
 .botao {
   display: inline-block;
   font-size: 0.55rem;
   letter-spacing: 0.1em;
   background-color: transparent;
   color: var(--dourado);
-  /* Borda estilo pixel: 3px sólida */
   border: 3px solid var(--dourado-escuro);
   padding: 0.8rem 1.5rem;
   text-decoration: none;
-  border-radius: 0;
-  /* Sombra para baixo/direita = efeito 3D pixel */
-  box-shadow: 4px 4px 0 var(--dourado-escuro);
+  box-shadow: 4px 4px 0 var(--dourado-escuro); 
   transition: all 0.1s;
 }
 
+/* Ao passar o mouse, o botão "afunda" */
 .botao:hover {
   box-shadow: 2px 2px 0 var(--dourado-escuro);
   transform: translate(2px, 2px);
 }
 
+/* Variante preenchida do botão */
 .botao-destaque {
   background-color: var(--dourado);
   color: var(--fundo);
@@ -317,29 +232,21 @@ nav a:hover {
   box-shadow: 2px 2px 0 #7a5f24;
 }
 
-.botao-grande {
-  font-size: 0.65rem;
-  padding: 1rem 2rem;
-}
 
-/* ══════════════════════════════
+/* ══════════════════════════════════════════════════
    SEÇÕES GERAIS
-══════════════════════════════ */
+══════════════════════════════════════════════════ */
 section {
   padding: 4rem 2rem;
 }
 
-.fundo-medio {
-  background-color: var(--fundo-medio);
-  border-top: 4px solid var(--dourado-escuro);
-  border-bottom: 4px solid var(--dourado-escuro);
-}
 
 .conteudo {
   max-width: 900px;
-  margin: 0 auto;
+  margin: 0 auto; 
 }
 
+/* Label pequena acima dos títulos */
 .label {
   display: block;
   font-size: 0.55rem;
@@ -349,14 +256,14 @@ section {
 }
 
 h2 {
-  font-size: clamp(0.8rem, 2.5vw, 1.2rem);
+  font-size: clamp(0.8rem, 2.5vw, 1.2rem); 
   color: var(--dourado);
   text-shadow: 3px 3px 0 #000;
   margin-bottom: 1rem;
   line-height: 1.5;
 }
 
-/* Linha divisória com caracteres */
+/* Linha decorativa com caracteres */
 .linha-pixel {
   margin-bottom: 2rem;
   color: var(--dourado-escuro);
@@ -375,390 +282,10 @@ h2 {
   font-size: 1.1rem;
 }
 
-/* ══════════════════════════════
-   CARDS DOS CRISTAIS
-══════════════════════════════ */
-.cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  margin-top: 1rem;
-}
 
-.card {
-  background-color: var(--fundo-card);
-  border: 3px solid var(--dourado-escuro);
-  padding: 1.5rem 1.2rem;
-  border-radius: 0;
-  box-shadow: 6px 6px 0 #000;
-  transition: transform 0.1s, box-shadow 0.1s;
-}
-
-.card:hover {
-  transform: translate(-3px, -3px);
-  box-shadow: 9px 9px 0 #000;
-}
-
-.card h3 {
-  font-size: 0.6rem;
-  margin-bottom: 0.5rem;
-  line-height: 1.6;
-}
-
-.tipo {
-  font-size: 0.5rem;
-  color: var(--texto-fraco);
-  margin-bottom: 0.8rem;
-  letter-spacing: 0.05em;
-}
-
-.card p {
-  font-size: 1rem;
-  color: var(--texto-fraco);
-}
-
-.localizacao {
-  margin-top: 1rem;
-  padding-top: 0.8rem;
-  border-top: 2px solid rgba(201, 168, 76, 0.15);
-  font-size: 0.9rem !important;
-  font-family: 'Press Start 2P', monospace;
-  font-size: 0.45rem !important;
-  letter-spacing: 0.05em;
-}
-
-.card.azul    { border-color: var(--azul); box-shadow: 6px 6px 0 #0a2040; }
-.card.verde   { border-color: var(--verde); box-shadow: 6px 6px 0 #0a3018; }
-.card.vermelho{ border-color: var(--vermelho); box-shadow: 6px 6px 0 #400a0a; }
-
-.card.azul h3    { color: var(--azul); }
-.card.verde h3   { color: var(--verde); }
-.card.vermelho h3{ color: var(--vermelho); }
-
-/* ══════════════════════════════
-   GEM PIXEL ART (grade 3x3 de divs)
-══════════════════════════════ */
-.pixel-gem {
-  display: grid;
-  grid-template-columns: repeat(3, 12px);
-  grid-template-rows: repeat(3, 12px);
-  gap: 2px;
-  margin-bottom: 1rem;
-  width: fit-content;
-}
-
-/* Cada div dentro da gem recebe uma cor */
-.azul-gem div    { background: var(--azul); }
-.verde-gem div   { background: var(--verde); }
-.vermelho-gem div{ background: var(--vermelho); }
-
-/* Cantos transparentes = formato de losango */
-.pixel-gem div:nth-child(1),
-.pixel-gem div:nth-child(3),
-.pixel-gem div:nth-child(7),
-.pixel-gem div:nth-child(9) {
-  background: transparent !important;
-}
-
-/* Centro mais claro = brilho da gema */
-.pixel-gem div:nth-child(5) {
-  opacity: 0.4;
-}
-
-/* ══════════════════════════════
-   BARRAS DE STATUS RPG
-══════════════════════════════ */
-.rpg-status {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  margin-bottom: 0.6rem;
-}
-
-.rpg-label {
-  font-family: 'Press Start 2P', monospace;
-  font-size: 0.55rem;
-  color: var(--dourado);
-  width: 24px;
-}
-
-.barra-wrap {
-  flex: 1;
-  height: 14px;
-  background: var(--fundo-claro);
-  border: 2px solid var(--dourado-escuro);
-}
-
-.barra {
-  height: 100%;
-}
-
-.barra-hp  { width: 98%; background: var(--hp-verde); }
-.barra-mp  { width: 75%; background: var(--mp-azul); }
-
-.rpg-val {
-  font-family: 'Press Start 2P', monospace;
-  font-size: 0.45rem;
-  color: var(--texto-fraco);
-  min-width: 55px;
-  text-align: right;
-}
-
-/* ══════════════════════════════
-   HABILIDADES
-══════════════════════════════ */
-.subtitulo-secao {
-  font-size: 0.6rem;
-  color: var(--dourado);
-  margin: 2rem 0 1rem;
-  letter-spacing: 0.05em;
-}
-
-.habilidades {
-  list-style: none;
-}
-
-.habilidades li {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 1rem;
-  margin-bottom: 0.8rem;
-  background-color: var(--fundo-claro);
-  border: 2px solid var(--dourado-escuro);
-  border-left: 4px solid var(--dourado);
-  box-shadow: 4px 4px 0 #000;
-}
-
-.icone-hab {
-  font-size: 1.4rem;
-  flex-shrink: 0;
-}
-
-.habilidades strong {
-  font-family: 'Press Start 2P', monospace;
-  font-size: 0.55rem;
-  color: var(--dourado);
-  display: block;
-  margin-bottom: 0.4rem;
-  line-height: 1.6;
-}
-
-.habilidades p {
-  font-size: 1rem;
-  color: var(--texto-fraco);
-  margin: 0;
-}
-
-/* Badge ATK / DEF / MGC */
-.rpg-badge {
-  font-family: 'Press Start 2P', monospace;
-  font-size: 0.45rem;
-  padding: 0.3rem 0.5rem;
-  background: var(--dourado-escuro);
-  color: var(--dourado-claro);
-  border: 2px solid var(--dourado);
-  margin-left: auto;
-  flex-shrink: 0;
-}
-
-.rpg-badge.def { background: #0a2a40; border-color: var(--azul); color: var(--azul); }
-.rpg-badge.mag { background: #1a0a30; border-color: #9b59b6; color: #9b59b6; }
-
-/* ══════════════════════════════
-   PERSONA
-══════════════════════════════ */
-.persona-grid {
-  display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 2.5rem;
-  margin-bottom: 2.5rem;
-}
-
-.persona-perfil {
-  text-align: center;
-}
-
-/* Avatar pixel art com CSS puro */
-.pixel-avatar {
-  width: 80px;
-  height: 80px;
-  margin: 0 auto 1rem;
-  position: relative;
-  background: var(--fundo-claro);
-  border: 3px solid var(--dourado);
-  box-shadow: 4px 4px 0 #000;
-  overflow: hidden;
-}
-
-.av-cabelo {
-  width: 100%;
-  height: 20px;
-  background: #4a2800;
-}
-
-.av-rosto {
-  width: 60%;
-  height: 26px;
-  background: #c8a07a;
-  margin: 0 auto;
-  border: 2px solid #8a6040;
-}
-
-.av-olhos {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin-top: -22px;
-  padding-top: 6px;
-}
-
-.av-olho {
-  width: 6px;
-  height: 6px;
-  background: #1a0e00;
-}
-
-.av-corpo {
-  width: 70%;
-  height: 22px;
-  background: #2a3a5a;
-  margin: 2px auto 0;
-  border: 2px solid #1a2a4a;
-}
-
-.av-fone {
-  width: 90%;
-  height: 8px;
-  background: #1a1a1a;
-  margin: 0 auto;
-  border-radius: 0;
-}
-
-.persona-nome {
-  font-size: 0.6rem;
-  color: var(--dourado);
-  margin-bottom: 0.5rem;
-  line-height: 1.6;
-}
-
-.persona-cargo {
-  font-family: 'Press Start 2P', monospace;
-  font-size: 0.45rem;
-  color: var(--texto-fraco);
-  margin-bottom: 0.5rem;
-}
-
-.persona-plataforma {
-  font-family: 'Press Start 2P', monospace;
-  font-size: 0.45rem;
-  color: var(--dourado-escuro);
-  margin-bottom: 1rem;
-  border: 2px solid var(--dourado-escuro);
-  padding: 0.3rem;
-}
-
-.persona-bio {
-  font-size: 1rem;
-  color: var(--texto-fraco);
-  text-align: left;
-}
-
-.persona-detalhes {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.persona-bloco {
-  background-color: var(--fundo-card);
-  border: 2px solid var(--dourado-escuro);
-  border-left: 4px solid var(--dourado);
-  padding: 1rem 1.2rem;
-  box-shadow: 4px 4px 0 #000;
-}
-
-.persona-bloco h4 {
-  font-family: 'Press Start 2P', monospace;
-  font-size: 0.55rem;
-  color: var(--dourado);
-  margin-bottom: 0.7rem;
-  letter-spacing: 0.05em;
-}
-
-.persona-lista {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-}
-
-.persona-lista li {
-  font-size: 1rem;
-  color: var(--texto-fraco);
-  padding-left: 1.2rem;
-  position: relative;
-}
-
-.persona-lista li::before {
-  content: '▸';
-  position: absolute;
-  left: 0;
-  color: var(--dourado-escuro);
-}
-
-.vermelho-bloco {
-  border-left: 4px solid var(--vermelho);
-}
-
-.vermelho-bloco h4 {
-  color: var(--vermelho);
-}
-
-/* Grid de hábitos */
-.habitos-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  margin-top: 1rem;
-}
-
-.habito {
-  background-color: var(--fundo-card);
-  border: 2px solid var(--dourado-escuro);
-  padding: 0.8rem 1rem;
-  font-size: 0.95rem;
-  color: var(--texto-fraco);
-  box-shadow: 3px 3px 0 #000;
-}
-
-/* ══════════════════════════════
-   SEÇÃO JOGAR
-══════════════════════════════ */
-#jogar {
-  background-color: var(--fundo-medio);
-  border-top: 4px solid var(--dourado-escuro);
-}
-
-.jogar-cta {
-  text-align: center;
-}
-
-.jogar-cta .linha-pixel {
-  margin: 0 auto 1.5rem;
-}
-
-.disponivel {
-  font-family: 'Press Start 2P', monospace;
-  margin-top: 1rem;
-  font-size: 0.5rem;
-  color: var(--dourado-escuro) !important;
-  letter-spacing: 0.1em;
-}
-
-/* ══════════════════════════════
+/* ══════════════════════════════════════════════════
    RODAPÉ
-══════════════════════════════ */
+══════════════════════════════════════════════════ */
 footer {
   text-align: center;
   padding: 2.5rem 2rem;
@@ -774,7 +301,6 @@ footer .logo {
 }
 
 .divisor-pixel-footer {
-  font-family: monospace;
   color: var(--dourado-escuro);
   margin: 1rem auto;
   letter-spacing: 3px;
@@ -794,27 +320,31 @@ footer p {
   margin-top: 0.3rem;
 }
 
-/* ══════════════════════════════
-   ANIMAÇÃO AO ROLAR
-══════════════════════════════ */
+
+/* ══════════════════════════════════════════════════
+   ANIMAÇÃO DE ENTRADA (JavaScript + CSS juntos)
+   .escondido = estado inicial (invisível, abaixo)
+   .visivel   = estado final (visível, posição normal)
+   transition = suaviza a mudança entre os dois estados
+══════════════════════════════════════════════════ */
 .escondido {
   opacity: 0;
-  transform: translateY(16px);
+  transform: translateY(16px); 
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 .visivel {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0); 
 }
 
-/* ══════════════════════════════
-   MOBILE
-══════════════════════════════ */
+
+/* ══════════════════════════════════════════════════
+   RESPONSIVIDADE - celular
+   @media = regras que só valem em telas menores que 768px
+══════════════════════════════════════════════════ */
 @media (max-width: 768px) {
   nav { padding: 1rem; }
-  nav ul { display: none; }
-  .cards { grid-template-columns: 1fr; }
-  .persona-grid { grid-template-columns: 1fr; }
-  .habitos-grid { grid-template-columns: 1fr 1fr; }
+  nav ul { display: none; } 
+  .logo-img { max-width: 90%; }
 }
