@@ -1,16 +1,24 @@
-
+/* ══════════════════════════════════════════════════
+   VARIÁVEIS DE CORES
+   :root = raiz do documento (afeta o site inteiro)
+   var(--nome) = usa a variável em qualquer lugar
+══════════════════════════════════════════════════ */
 :root {
-  --dourado:        #c9a84c;  
-  --dourado-claro:  #e8c96a;   
-  --dourado-escuro: #7a5f24;   
-  --fundo:          #0f0c08;  
-  --fundo-medio:    #1a1510;  
-  --fundo-claro:    #2a2118; 
-  --texto:          #d4c5a0;   
-  --texto-fraco:    #7a6a50;   
-  
+  --dourado:        #c9a84c;
+  --dourado-claro:  #e8c96a;
+  --dourado-escuro: #7a5f24;
+  --fundo:          #0f0c08;
+  --fundo-medio:    #1a1510;
+  --fundo-claro:    #2a2118;
+  --fundo-card:     #1e1912;
+  --texto:          #d4c5a0;
+  --texto-fraco:    #7a6a50;
+  --azul:           #4a90d9;
+  --verde:          #2ecc71;
+  --vermelho:       #e74c3c;
+  --hp-verde:       #3ddc5a;
+  --mp-azul:        #4a90d9;
 }
-
 
 /* ══════════════════════════════════════════════════
    RESET BÁSICO
@@ -21,9 +29,8 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  image-rendering: pixelated; 
+  image-rendering: pixelated;
 }
-
 
 /* ══════════════════════════════════════════════════
    BODY - estilo geral da página
@@ -31,16 +38,16 @@
 body {
   background-color: var(--fundo);
   color: var(--texto);
-  font-family: 'VT323', monospace; 
+  font-family: 'VT323', monospace; /* fonte retrô de terminal */
   font-size: 20px;
   line-height: 1.6;
-  overflow-x: hidden; 
+  overflow-x: hidden;
 }
 
-h1, h2, h3, nav, .logo, .label, .eyebrow, .botao, .nav-jogar {
+/* Títulos usam a fonte arcade (Press Start 2P) */
+h1, h2, h3, nav, .logo, .label, .eyebrow, .botao, .tipo, .nav-jogar {
   font-family: 'Press Start 2P', monospace;
 }
-
 
 /* ══════════════════════════════════════════════════
    SCANLINES - efeito de TV antiga
@@ -50,7 +57,7 @@ h1, h2, h3, nav, .logo, .label, .eyebrow, .botao, .nav-jogar {
 ══════════════════════════════════════════════════ */
 .scanlines {
   position: fixed;
-  inset: 0; 
+  inset: 0; /* equivale a top/right/bottom/left: 0 */
   z-index: 999;
   pointer-events: none;
   background: repeating-linear-gradient(
@@ -61,7 +68,6 @@ h1, h2, h3, nav, .logo, .label, .eyebrow, .botao, .nav-jogar {
     transparent 3px
   );
 }
-
 
 /* ══════════════════════════════════════════════════
    NAVEGAÇÃO - barra do topo
@@ -76,68 +82,64 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 2rem;
+  padding: 16px 32px;
   background-color: var(--fundo);
   border-bottom: 4px solid var(--dourado-escuro);
   box-shadow: 0 4px 0 #000;
 }
+.icone img{
+  width: 120px;
+}
 
 .logo {
-  font-size: 0.6rem;
+  font-size: 13PX;
   color: var(--dourado);
-  letter-spacing: 0.05em;
+  letter-spacing:  0.05em;
+  margin-left: -990px;
 }
 
 /* Remove os pontos da lista e coloca itens em linha */
 nav ul {
   list-style: none;
   display: flex;
-  gap: 1.5rem;
+  gap: 24px;
   align-items: center;
 }
 
 nav a {
-  font-size: 0.5rem;
+  font-size: 8px;
   letter-spacing: 0.05em;
   color: var(--texto-fraco);
   text-decoration: none;
 }
 
-nav a:hover {
-  color: var(--dourado);
-}
+nav a:hover { color: var(--dourado); }
 
 /* Botão especial de jogar no menu */
 .nav-jogar {
   background-color: var(--dourado);
-  color: var(--fundo) !important; 
-  padding: 0.4rem 0.8rem;
+  color: var(--fundo) !important; /* !important sobrescreve outros estilos */
+  padding: 6px 13px;
   border: 2px solid var(--dourado-claro);
 }
 
-.nav-jogar:hover {
-  background-color: var(--dourado-claro) !important;
-}
-
+.nav-jogar:hover { background-color: var(--dourado-claro) !important; }
 
 /* ══════════════════════════════════════════════════
    HERO - primeira seção da página
-   text-align: center = centraliza o conteúdo
-   position: relative = permite posicionar filhos
-   overflow: hidden = esconde o que sair dos limites
 ══════════════════════════════════════════════════ */
 #hero {
   text-align: center;
-  padding: 4rem 2rem 4rem;
+  padding: 64px 32px;
   background-color: var(--fundo-medio);
   border-bottom: 4px solid var(--dourado-escuro);
   position: relative;
   overflow: hidden;
 }
 
-/* Grade de pontos decorativa no fundo do hero */
+/* Grade de pontos decorativa no fundo */
 #hero::before {
-  content: '';           
+  content: ''; 
   position: absolute;
   inset: 0;
   background-image: radial-gradient(circle, var(--dourado-escuro) 1px, transparent 1px);
@@ -148,50 +150,45 @@ nav a:hover {
 /* Logo da imagem */
 .logo-img {
   width: 100%;
-  max-width: 600px;      
-  height: auto;         
-  margin-bottom: 1.5rem;
-  position: relative;   
-  filter: drop-shadow(0 4px 24px rgba(201, 168, 76, 0.3)); 
+  max-width: 600px;
+  height: auto; /* mantém proporção */
+  margin-bottom: 24px;
+  position: relative;
+  filter: drop-shadow(0 4px 24px rgba(201, 168, 76, 0.3));
 }
 
-/* Divisor feito de símbolos repetidos via CSS */
+/* Divisor feito de símbolos via CSS */
 .divisor-pixel {
   color: var(--dourado-escuro);
-  margin: 0 auto 1.5rem;
+  margin: 0 auto 24px;
   letter-spacing: 4px;
   position: relative;
 }
 
-.divisor-pixel::before {
-  content: '▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪';
+.divisor-pixel::before { content: '▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪▪'; }
+
+.eyebrow {
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: var(--dourado-escuro);
+  margin-bottom: 24px;
+  position: relative;
 }
 
-/* Texto de lore (história curta) */
 .lore {
   max-width: 500px;
-  margin: 0 auto 2.5rem;
+  margin: 0 auto 40px;
   color: var(--texto-fraco);
-  font-size: 1.1rem;
+  font-size: 18px;
   position: relative;
 }
 
-/* Container dos botões lado a lado */
+/* Botões lado a lado com display: flex */
 .hero-botoes {
   display: flex;
-  gap: 1rem;
+  gap: 16px;
   justify-content: center;
-  flex-wrap: wrap;       
-  position: relative;
-}
-
-/* Texto "PRESS START" que pisca via JavaScript */
-.press-start {
-  font-family: 'Press Start 2P', monospace;
-  font-size: 0.6rem;
-  color: var(--dourado-escuro);
-  margin-top: 2rem;
-  transition: opacity 0.1s; 
+  flex-wrap: wrap;
   position: relative;
 }
 
@@ -201,24 +198,24 @@ nav a:hover {
 ══════════════════════════════════════════════════ */
 .botao {
   display: inline-block;
-  font-size: 0.55rem;
+  font-size: 9px;
   letter-spacing: 0.1em;
   background-color: transparent;
   color: var(--dourado);
   border: 3px solid var(--dourado-escuro);
-  padding: 0.8rem 1.5rem;
+  padding: 13px 24px;
   text-decoration: none;
-  box-shadow: 4px 4px 0 var(--dourado-escuro); 
+  box-shadow: 4px 4px 0 var(--dourado-escuro); /* sombra = efeito 3D pixel */
   transition: all 0.1s;
 }
 
-/* Ao passar o mouse, o botão "afunda" */
+/* Ao passar o mouse, botão "afunda" */
 .botao:hover {
   box-shadow: 2px 2px 0 var(--dourado-escuro);
   transform: translate(2px, 2px);
 }
 
-/* Variante preenchida do botão */
+/* Variante preenchida */
 .botao-destaque {
   background-color: var(--dourado);
   color: var(--fundo);
@@ -232,119 +229,393 @@ nav a:hover {
   box-shadow: 2px 2px 0 #7a5f24;
 }
 
+.botao-grande {
+  font-size: 10px;
+  padding: 16px 32px;
+}
 
 /* ══════════════════════════════════════════════════
    SEÇÕES GERAIS
 ══════════════════════════════════════════════════ */
-section {
-  padding: 4rem 2rem;
+section { padding: 64px 32px; }
+
+/* Seções com fundo diferente */
+.fundo-medio {
+  background-color: var(--fundo-medio);
+  border-top: 4px solid var(--dourado-escuro);
+  border-bottom: 4px solid var(--dourado-escuro);
 }
 
-
+/* Centraliza e limita largura do conteúdo */
 .conteudo {
   max-width: 900px;
-  margin: 0 auto; 
+  margin: 0 auto;
 }
 
 /* Label pequena acima dos títulos */
 .label {
   display: block;
-  font-size: 0.55rem;
+  font-size: 9px;
   letter-spacing: 0.1em;
   color: var(--dourado-escuro);
-  margin-bottom: 0.8rem;
+  margin-bottom: 13px;
 }
 
 h2 {
-  font-size: clamp(0.8rem, 2.5vw, 1.2rem); 
+  font-size: clamp(13px, 2.5vw, 19px); /* tamanho responsivo */
   color: var(--dourado);
   text-shadow: 3px 3px 0 #000;
-  margin-bottom: 1rem;
+  margin-bottom: 16px;
   line-height: 1.5;
 }
 
 /* Linha decorativa com caracteres */
 .linha-pixel {
-  margin-bottom: 2rem;
+  margin-bottom: 32px;
   color: var(--dourado-escuro);
   font-family: monospace;
-  font-size: 0.85rem;
+  font-size: 14px;
   letter-spacing: 3px;
 }
 
-.linha-pixel::before {
-  content: '▬▬▬▬▬▬▬▬▬▬▬▬▬▬';
-}
+.linha-pixel::before { content: '▬▬▬▬▬▬▬▬▬▬▬▬▬▬'; }
 
 .conteudo p {
   color: var(--texto);
-  margin-bottom: 1rem;
-  font-size: 1.1rem;
+  margin-bottom: 16px;
+  font-size: 18px;
 }
 
+/* ══════════════════════════════════════════════════
+   CARDS DOS CRISTAIS
+   display: grid = divide em 3 colunas iguais (1fr cada)
+══════════════════════════════════════════════════ */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 16px;
+}
+
+.card {
+  background-color: var(--fundo-card);
+  border: 3px solid var(--dourado-escuro);
+  padding: 24px 19px;
+  box-shadow: 6px 6px 0 #000;
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 9px 9px 0 #000;
+}
+
+.card h3 { font-size: 10px; margin-bottom: 8px; line-height: 1.6; }
+.tipo { font-size: 8px; color: var(--texto-fraco); margin-bottom: 13px; }
+.card p { font-size: 16px; color: var(--texto-fraco); }
+
+.localizacao {
+  margin-top: 16px;
+  padding-top: 13px;
+  border-top: 2px solid rgba(201, 168, 76, 0.15);
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px !important;
+}
+
+/* Cores específicas de cada card */
+.card.azul     { border-color: var(--azul);     box-shadow: 6px 6px 0 #0a2040; }
+.card.verde    { border-color: var(--verde);    box-shadow: 6px 6px 0 #0a3018; }
+.card.vermelho { border-color: var(--vermelho); box-shadow: 6px 6px 0 #400a0a; }
+.card.azul h3     { color: var(--azul); }
+.card.verde h3    { color: var(--verde); }
+.card.vermelho h3 { color: var(--vermelho); }
+
+/* ══════════════════════════════════════════════════
+   GEM PIXEL ART
+   Grade 3x3 de divs coloridas formando um losango
+   Os cantos (posições 1,3,7,9) ficam transparentes
+══════════════════════════════════════════════════ */
+.pixel-gem {
+  display: grid;
+  grid-template-columns: repeat(3, 12px);
+  grid-template-rows: repeat(3, 12px);
+  gap: 2px;
+  margin-bottom: 16px;
+  width: fit-content;
+}
+
+.azul-gem div     { background: var(--azul); }
+.verde-gem div    { background: var(--verde); }
+.vermelho-gem div { background: var(--vermelho); }
+
+/* ══════════════════════════════════════════════════
+   BARRAS DE STATUS RPG
+══════════════════════════════════════════════════ */
+.rpg-status {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 10px;
+}
+
+.rpg-label { font-family: 'Press Start 2P', monospace; font-size: 9px; color: var(--dourado); width: 24px; }
+
+.barra-wrap {
+  flex: 1; /* ocupa o espaço restante */
+  height: 14px;
+  background: var(--fundo-claro);
+  border: 2px solid var(--dourado-escuro);
+}
+
+.barra { height: 100%; }
+.barra-hp { width: 100%; background: var(--hp-verde); }
+
+
+/* ══════════════════════════════════════════════════
+   HABILIDADES
+══════════════════════════════════════════════════ */
+.subtitulo-secao { font-size: 10px; color: var(--dourado); margin: 32px 0 16px; }
+
+.habilidades { list-style: none; }
+
+.habilidades li {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  margin-bottom: 13px;
+  background-color: var(--fundo-claro);
+  border: 2px solid var(--dourado-escuro);
+  border-left: 4px solid var(--dourado);
+  box-shadow: 4px 4px 0 #000;
+}
+
+.icone-hab { font-size: 22px; flex-shrink: 0; }
+
+.habilidades strong {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 9px;
+  color: var(--dourado);
+  display: block;
+  margin-bottom: 6px;
+  line-height: 1.6;
+}
+
+.habilidades p { font-size: 16px; color: var(--texto-fraco); margin: 0; }
+
+/* Badge colorido no canto direito da habilidade */
+.rpg-badge {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  padding: 5px 8px;
+  background: var(--dourado-escuro);
+  color: var(--dourado-claro);
+  border: 2px solid var(--dourado);
+  margin-left: auto; /* empurra para o lado direito */
+  flex-shrink: 0;
+}
+
+.rpg-badge.def { background: #0a2a40; border-color: var(--azul);   color: var(--azul); }
+.rpg-badge.mag { background: #1a0a30; border-color: #9b59b6; color: #9b59b6; }
+
+/* ══════════════════════════════════════════════════
+   PERSONA
+   display: grid com 2 colunas: avatar fixo + detalhes flexíveis
+══════════════════════════════════════════════════ */
+.persona-grid {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.persona-perfil { text-align: center;}
+
+/* Avatar pixel art com divs coloridas */
+.pixel-avatar {
+  width: 400px; height: 500px;
+  margin: 0 auto 1rem;
+  position: relative;
+  background: var(--fundo-claro);
+  border: 3px solid var(--dourado);
+  box-shadow: 4px 4px 0 #000;
+  overflow: hidden;
+  margin-left: -100px;
+}
+
+.pixel-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* encaixa a imagem sem distorcer */
+  object-position: center;
+}
+
+.persona-nome     { font-size: 10px; color: var(--dourado); margin-bottom: 8px; line-height: 1.6; }
+.persona-cargo    { font-family: 'Press Start 2P', monospace; font-size: 7px; color: var(--texto-fraco); margin-bottom: 8px; }
+.persona-plataforma { font-family: 'Press Start 2P', monospace; font-size: 7px; color: var(--dourado-escuro); margin-bottom: 16px; border: 2px solid var(--dourado-escuro); padding: 0.3rem; }
+.persona-bio      { font-size: 16px; color: var(--texto-fraco); text-align: center; }
+
+.persona-detalhes { display: flex; flex-direction: column; gap: 1rem; margin-left : 200px; }
+
+.persona-bloco {
+  background-color: var(--fundo-card);
+  border: 2px solid var(--dourado-escuro);
+  border-left: 4px solid var(--dourado);
+  padding: 16px 19px;
+  box-shadow: 4px 4px 0 #000;
+}
+
+.persona-bloco h4 { font-family: 'Press Start 2P', monospace; font-size: 9px; color: var(--dourado); margin-bottom: 11px; }
+
+.persona-lista { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+
+.persona-lista li {
+  font-size: 16px;
+  color: var(--texto-fraco);
+  padding-left: 19px;
+  position: relative;
+}
+
+/* Seta decorativa antes de cada item */
+.persona-lista li::before { content: '▸'; position: absolute; left: 0; color: var(--dourado-escuro); }
+
+.vermelho-bloco           { border-left: 4px solid var(--vermelho); }
+.vermelho-bloco h4        { color: var(--vermelho); }
+
+/* Grid de hábitos: 3 colunas */
+.habitos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.habito {
+  background-color: var(--fundo-card);
+  border: 2px solid var(--dourado-escuro);
+  padding: 13px 16px;
+  font-size: 15px;
+  color: var(--texto-fraco);
+  box-shadow: 3px 3px 0 #000;
+}
+
+/* ══════════════════════════════════════════════════
+   SEÇÃO JOGAR (CTA)
+══════════════════════════════════════════════════ */
+#jogar { background-color: var(--fundo-medio); border-top: 4px solid var(--dourado-escuro); }
+.jogar-cta { text-align: center; }
+.jogar-cta .linha-pixel { margin: 0 auto 24px; }
 
 /* ══════════════════════════════════════════════════
    RODAPÉ
 ══════════════════════════════════════════════════ */
 footer {
   text-align: center;
-  padding: 2.5rem 2rem;
+  padding: 40px 32px;
   background-color: var(--fundo);
   border-top: 4px solid var(--dourado-escuro);
 }
 
-footer .logo {
-  display: block;
-  font-size: 0.6rem;
-  color: var(--dourado);
-  margin-bottom: 0.5rem;
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
 }
 
-.divisor-pixel-footer {
-  color: var(--dourado-escuro);
-  margin: 1rem auto;
-  letter-spacing: 3px;
-}
+footer .logo { display: block; font-size: 10px; color: var(--dourado); margin-bottom: 8px; }
 
-.divisor-pixel-footer::before {
-  content: '▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪';
-}
+.divisor-pixel-footer { color: var(--dourado-escuro); margin: 16px auto; letter-spacing: 3px; }
+.divisor-pixel-footer::before { content: '▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪'; }
 
-footer p {
-  font-size: 0.9rem;
+footer p { font-size: 14px; color: var(--texto-fraco); }
+.creditos { font-size: 12px !important; margin-top: 5px; }
+
+#tema-btn {
+  background: none;
+  border: none;
+  font-size: 19px;
+  cursor: pointer;
   color: var(--texto-fraco);
 }
 
-.creditos {
-  font-size: 0.75rem !important;
-  margin-top: 0.3rem;
-}
-
-
 /* ══════════════════════════════════════════════════
-   ANIMAÇÃO DE ENTRADA (JavaScript + CSS juntos)
-   .escondido = estado inicial (invisível, abaixo)
-   .visivel   = estado final (visível, posição normal)
-   transition = suaviza a mudança entre os dois estados
-══════════════════════════════════════════════════ */
-.escondido {
-  opacity: 0;
-  transform: translateY(16px); 
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.visivel {
-  opacity: 1;
-  transform: translateY(0); 
-}
-
-
-/* ══════════════════════════════════════════════════
-   RESPONSIVIDADE - celular
-   @media = regras que só valem em telas menores que 768px
+   RESPONSIVIDADE - celular (telas menores que 768px)
+   @media = regras que só valem nesse tamanho de tela
 ══════════════════════════════════════════════════ */
 @media (max-width: 768px) {
-  nav { padding: 1rem; }
-  nav ul { display: none; } 
+  nav { padding: 16px; }
+  nav ul { display: none; }
   .logo-img { max-width: 90%; }
+  .cards { grid-template-columns: 1fr; }           /* cards em coluna única */
+  .persona-grid { grid-template-columns: 1fr; }    /* avatar acima dos detalhes */
+  .habitos-grid { grid-template-columns: 1fr 1fr; } /* hábitos em 2 colunas */
+}
+
+
+/* ══════════════════════════════════════════════════
+   DARK MODE (tema claro alternativo)
+══════════════════════════════════════════════════ */
+
+body.dark {
+  --fundo: #f5f5f5;
+  --fundo-medio: #e0e0e0;
+  --fundo-claro: #d6d6d6;
+  --fundo-card: #ffffff;
+
+  --texto: #222;
+  --texto-fraco: #555;
+
+  --dourado: #b8965a;
+  --dourado-claro: #d4b06f;
+  --dourado-escuro: #8a6f3a;
+}
+
+/* NAV */
+body.dark nav {
+  background-color: var(--fundo);
+  box-shadow: 0 4px 0 #999;
+}
+
+/* HERO */
+body.dark #hero {
+  background-color: var(--fundo-medio);
+}
+
+/* CARDS */
+body.dark .card {
+  box-shadow: 4px 4px 0 #aaa;
+}
+
+/* BOTÕES */
+body.dark .botao {
+  color: var(--dourado-escuro);
+  border-color: var(--dourado);
+}
+
+body.dark .botao-destaque {
+  background-color: var(--dourado);
+  color: white;
+}
+
+/* TEXTOS */
+body.dark p,
+body.dark .conteudo p {
+  color: var(--texto);
+}
+
+/* PERSONA */
+body.dark .persona-bloco {
+  background-color: var(--fundo-card);
+}
+
+/* FOOTER */
+body.dark footer {
+  background-color: #ddd;
+  color: #222;
+}
+
+/* LINHAS E DETALHES */
+body.dark .linha-pixel,
+body.dark .divisor-pixel,
+body.dark .divisor-pixel-footer {
+  color: var(--dourado-escuro);
 }

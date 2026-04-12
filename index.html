@@ -2,119 +2,278 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>Pixel Blade: Shadow of the Crystals</title>
-
-
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet" />
-
   <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="logo.png">
 </head>
 <body>
 
+  <!-- Efeito de TV antiga -->
   <div class="scanlines"></div>
 
-
+  <!-- ══ NAVEGAÇÃO ══ -->
   <nav>
-    <span class="logo">[ ⚔ PIXEL BLADE ]</span>
-
+    <div class="icone">
+      <img src="Logo de Pixel Blade em dourado-Photoroom.png" alt="Logo">
+    </div>
+    <span class="logo">PIXEL BLADE </span>
     <ul>
+          <button id="tema-btn">☀️
+      </button>
       <li><a href="#hero">INÍCIO</a></li>
       <li><a href="#historia">LENDA</a></li>
+      <li><a href="#cristais">CRISTAIS</a></li>
+      <li><a href="#cavaleiro">HERÓI</a></li>
+      <li><a href="#persona">PERSONA</a></li>
       <li><a href="https://itch.io" target="_blank" class="nav-jogar">▶ JOGAR</a></li>
     </ul>
   </nav>
 
-
+  <!-- ══ HERO (primeira seção) ══ -->
   <section id="hero">
-
-
-    <img src="logo.png" alt="Logo Pixel Blade: Shadow of the Crystals" class="logo-img" />
-
+    <img src="logo.png" alt="Logo Pixel Blade" class="logo-img" />
     <div class="divisor-pixel"></div>
-
     <p class="lore">
       Um reino à beira do colapso.<br/>
       Três cristais perdidos nas profundezas.<br/>
       Um cavaleiro enviado para o impossível.
     </p>
-
     <div class="hero-botoes">
       <a href="#historia" class="botao">[ A LENDA ]</a>
       <a href="https://itch.io" target="_blank" class="botao botao-destaque">▶ JOGAR AGORA</a>
     </div>
-
-    <p class="press-start">PRESS START</p>
   </section>
 
+  <!-- ══ HISTÓRIA ══ -->
   <section id="historia">
     <div class="conteudo">
-
       <span class="label">&gt; MISSÃO_001</span>
-
       <h2>O ÚLTIMO CHAMADO</h2>
-
       <div class="linha-pixel"></div>
-
-      <p>
-        Há muito tempo, os três Cristais do Reino guardavam o equilíbrio entre
-        o mundo dos vivos e as trevas que habitam sob a terra. Mas numa noite
-        sem lua, criaturas das profundezas roubaram as relíquias e as arrastaram
-        para os corredores esquecidos da Dungeon de Ashkarath.
-      </p>
-
-      <p>
-        Com o reino enfraquecendo a cada amanhecer, os nobres convocaram o
-        Cavaleiro Aldric — não por ser o mais poderoso, mas por ser o único
-        disposto a descer às profundezas sozinho, sem glória garantida,
-        sem promessa de retorno.
-      </p>
-
-      <p>
-        A dungeon é de nível baixo para quem enfrenta o mundo lá fora. Mas no
-        escuro, até um guerreiro experiente pode se perder — e os cristais
-        têm guardiões que não dormem.
-      </p>
-
+      <p>Há muito tempo, os três Cristais do Reino guardavam o equilíbrio entre
+         o mundo dos vivos e as trevas que habitam sob a terra. Mas numa noite
+         sem lua, criaturas das profundezas roubaram as relíquias e as arrastaram
+         para os corredores esquecidos da Dungeon de Ashkarath.</p>
+      <p>Com o reino enfraquecendo a cada amanhecer, os nobres convocaram o
+         Cavaleiro Aldric — não por ser o mais poderoso, mas por ser o único
+         disposto a descer às profundezas sozinho, sem glória garantida,
+         sem promessa de retorno.</p>
+      <p>A dungeon é de nível baixo para quem enfrenta o mundo lá fora. Mas no
+         escuro, até um guerreiro experiente pode se perder — e os cristais
+         têm guardiões que não dormem.</p>
     </div>
   </section>
 
+  <!-- ══ CRISTAIS (cards lado a lado) ══ -->
+  <section id="cristais" class="fundo-medio">
+    <div class="conteudo">
+      <span class="label">&gt; ITENS_ESPECIAIS</span>
+      <h2>OS TRÊS CRISTAIS</h2>
+      <div class="linha-pixel"></div>
 
+      <!-- div.cards usa display:grid no CSS para ficar em 3 colunas -->
+      <div class="cards">
+
+        <!-- Card azul -->
+        <div class="card azul">
+          <!-- Pixel gem: grade 3x3 de divs coloridas -->
+          <div class="pixel-gem azul-gem">
+          </div>
+          <h3>CRISTAL DA FORÇA</h3>
+          <p class="tipo">ROCHA · LVL 1</p>
+          <p>Controla as águas e as marés do reino. Guardado na Câmara de Lava.</p>
+          <p class="localizacao">&#9632; CÂMARA DE LAVA</p>
+        </div>
+
+        <!-- Card verde -->
+        <div class="card verde">
+          <div class="pixel-gem verde-gem">
+          </div>
+          <h3>CRISTAL DA VIDA</h3>
+          <p class="tipo">NATUREZA · LVL 2</p>
+          <p>Mantém a vegetação e a vida das florestas do reino. Dorme no Salão
+             dos Cogumelos, cercado de esporos letais.</p>
+          <p class="localizacao">&#9632; SALÃO DOS COGUMELOS</p>
+        </div>
+
+        <!-- Card vermelho -->
+        <div class="card vermelho">
+          <div class="pixel-gem vermelho-gem">
+          </div>
+          <h3>CRISTAL DE FOGO</h3>
+          <p class="tipo">FOGO · LVL 3 ★ CHEFE</p>
+          <p>Alimenta o calor e a luz do mundo. Câmara Sombria.</p>
+          <p class="localizacao">&#9632; CÂMARA SOMBRIA</p>
+        </div>
+
+      </div><!-- fim .cards -->
+    </div>
+  </section>
+
+  <!-- ══ CAVALEIRO (ficha do herói) ══ -->
+  <section id="cavaleiro">
+    <div class="conteudo">
+      <span class="label">&gt; FICHA_DO_HERÓI</span>
+      <h2>CAVALEIRO ALDRIC</h2>
+      <div class="linha-pixel"></div>
+
+      <!-- Barra de HP estilo RPG -->
+      <div class="rpg-status">
+        <span class="rpg-label">HP</span>
+        <div class="barra-wrap"><div class="barra barra-hp"></div></div>
+        <span class="rpg-val">100/100</span>
+      </div>
+
+      <p style="margin-top: 1.5rem;">Aldric é um guerreiro experiente, forjado em batalhas que outros recusaram.
+         Sua força não está apenas na espada — está na coragem de enfrentar o
+         desconhecido completamente só.</p>
+
+      <h3 class="subtitulo-secao">&gt; HABILIDADES</h3>
+
+      <!-- Lista de habilidades com ícone, texto e badge -->
+      <ul class="habilidades">
+        <li>
+          <span class="icone-hab">⚔</span>
+          <div>
+            <strong>GOLPE SOMBRIO</strong>
+            <p>Ataque poderoso que ignora a armadura do inimigo.</p>
+          </div>
+          <span class="rpg-badge">ATK</span>
+        </li>
+
+  </section>
+
+  <!-- ══ PERSONA (perfil do jogador) ══ -->
+  <section id="persona" class="fundo-medio">
+    <div class="conteudo">
+      <span class="label">&gt; PERFIL_DO_JOGADOR</span>
+      <h2>QUEM JOGA ESTE JOGO</h2>
+      <div class="linha-pixel"></div>
+
+      <!-- Grade: avatar + detalhes lado a lado -->
+      <div class="persona-grid">
+
+        <!-- Coluna esquerda: avatar e infos básicas -->
+        <div class="persona-perfil">
+          <!-- Avatar pixel art feito com divs coloridas -->
+          <div class="pixel-avatar">
+            <img src="persona.png" alt="Persona">
+          </div>
+          <h3 class="persona-nome">LUCAS ANDRADE</h3>
+          <p class="persona-cargo">19 ANOS</p>
+          <p class="persona-plataforma">PLATAFORMA: PC</p>
+          <p class="persona-bio">Apaixonado por games desde criança. Curte jogos indie,
+             pixel art e histórias bem construídas. Jogar, pra ele, é viver uma aventura.</p>
+        </div>
+
+        <!-- Coluna direita: blocos de interesses, objetivos, frustrações -->
+        <div class="persona-detalhes">
+
+          <div class="persona-bloco">
+            <h4>&gt; INTERESSES</h4>
+            <ul class="persona-lista">
+              <li>RPGs e aventura medieval</li>
+              <li>Pixel art e jogos indie</li>
+              <li>Exploração de mapas e segredos</li>
+              <li>Progressão de personagem</li>
+              <li>Histórias e lore bem construídos</li>
+            </ul>
+          </div>
+
+          <div class="persona-bloco">
+            <h4>&gt; OBJETIVOS</h4>
+            <ul class="persona-lista">
+              <li>Sentir-se dentro de uma aventura</li>
+              <li>Explorar cada canto do mapa</li>
+              <li>Descobrir itens secretos e upgrades</li>
+              <li>Evoluir o personagem ao longo do jogo</li>
+            </ul>
+          </div>
+
+          <div class="persona-bloco vermelho-bloco">
+            <h4>&gt; FRUSTRAÇÕES</h4>
+            <ul class="persona-lista">
+              <li>Jogos muito curtos</li>
+              <li>Falta de exploração</li>
+              <li>Gameplay repetitiva</li>
+              <li>História fraca</li>
+            </ul>
+          </div>
+
+        </div>
+      </div><!-- fim .persona-grid -->
+
+      <h3 class="subtitulo-secao">&gt; HÁBITOS DE JOGO</h3>
+
+      <!-- Grade de hábitos: 3 colunas de caixinhas -->
+      <div class="habitos-grid">
+        <div class="habito">[ ⏱ ] 2 a 4 horas por dia</div>
+        <div class="habito">[ 🗺 ] Explora tudo antes de avançar</div>
+        <div class="habito">[ 🏆 ] Completa todas as conquistas</div>
+        <div class="habito">[ 📖 ] Lê todo o lore e história</div>
+        <div class="habito">[ 🔍 ] Caça itens e segredos</div>
+        <div class="habito">[ 📸 ] Salva prints de momentos épicos</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CTA (chamada para jogar) ══ -->
+  <section id="jogar">
+    <div class="conteudo jogar-cta">
+      <p class="eyebrow">&gt; VOCÊ ESTÁ PRONTO?</p>
+      <h2>ENTRE NA DUNGEON</h2>
+      <div class="linha-pixel"></div>
+      <p class="lore" style="margin-bottom: 2rem;">
+        OS CRISTAIS AGUARDAM.<br/>
+        A DUNGEON CHAMA.<br/>
+        ALDRIC PRECISA DE VOCÊ.
+      </p>
+      <a href="https://itch.io" target="_blank" class="botao botao-destaque botao-grande">▶ JOGAR AGORA</a>
+    </div>
+  </section>
+
+  <!-- ══ RODAPÉ ══ -->
   <footer>
-    <span class="logo">[ ⚔ PIXEL BLADE: SHADOW OF THE CRYSTALS ]</span>
+    <span class="logo-footer">[ ⚔ PIXEL BLADE: SHADOW OF THE CRYSTALS ]</span>
     <div class="divisor-pixel-footer"></div>
     <p>UM JOGO INDIE DE AVENTURA E DUNGEON CRAWLING</p>
-    <p class="creditos">FEITO POR PAULO</p>
+    <p class="creditos">DESENVOLVIDO POR PAULO</p>
   </footer>
 
-
-  <script>
-    const textoStart = document.querySelector('.press-start');
-
-    setInterval(function() {
-      if (textoStart.style.opacity === '0') {
-        textoStart.style.opacity = '1';
-      } else {
-        textoStart.style.opacity = '0';
-      }
-    }, 600);
-
-    const observador = new IntersectionObserver(function(entradas) {
-      entradas.forEach(function(entrada) {
-        if (entrada.isIntersecting) {
-          entrada.target.classList.add('visivel');
-        }
-      });
-    });
-
-  
-    document.querySelectorAll('.conteudo p').forEach(function(paragrafo) {
-      paragrafo.classList.add('escondido'); 
-      observador.observe(paragrafo);        
-    });
-  </script>
-
 </body>
+<script>
+  window.onload = function () {
+
+    history.scrollRestoration = "manual";
+    const botao = document.getElementById("tema-btn");
+
+    botao.onclick = function () {
+      document.body.classList.toggle("dark");
+
+      if (document.body.classList.contains("dark")) {
+        botao.textContent = "🌙"; // modo escuro → mostra sol
+      } else {
+        botao.textContent = "☀️"; // modo claro → mostra lua
+      }
+    };
+
+    let nome = prompt("Qual é o seu nome?");
+
+  // pede a idade
+  let idade = Number(prompt("Olá " + nome + ", qual é a sua idade?"));
+
+  // verificação
+  if (idade >= 10) {
+    alert("Acesso permitido. Bem-vindo, " + nome + "!");
+  } else {
+    alert("Acesso restrito, " + nome + "!");
+
+    // borra o site
+    document.body.style.filter = "blur(8px)";
+    document.body.style.pointerEvents = "none";
+  }
+  };
+</script>
 </html>
