@@ -11,6 +11,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Audio,
 		C3.Behaviors.Pin,
 		C3.Plugins.Mouse,
+		C3.Behaviors.Anchor,
 		C3.Plugins.Sprite.Cnds.OnCollision,
 		C3.Plugins.System.Acts.Wait,
 		C3.Plugins.System.Acts.GoToLayout,
@@ -89,6 +90,7 @@ self.C3_JsPropNameTable = [
 	{fim: 0},
 	{estatuafim: 0},
 	{Sprite19: 0},
+	{Âncora: 0},
 	{coracao: 0},
 	{vidas: 0}
 ];

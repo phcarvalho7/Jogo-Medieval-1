@@ -1,8 +1,8 @@
-/* ══════════════════════════════════════════════════
+/*
    VARIÁVEIS DE CORES
-   :root = raiz do documento (afeta o site inteiro)
-   var(--nome) = usa a variável em qualquer lugar
-══════════════════════════════════════════════════ */
+   :root
+   var(--nome)
+*/
 :root {
   --dourado:        #c9a84c;
   --dourado-claro:  #e8c96a;
@@ -17,14 +17,13 @@
   --verde:          #2ecc71;
   --vermelho:       #e74c3c;
   --hp-verde:       #3ddc5a;
-  --mp-azul:        #4a90d9;
 }
 
-/* ══════════════════════════════════════════════════
+/*
    RESET BÁSICO
    Remove margens e paddings padrão do navegador
    box-sizing: border-box faz padding não aumentar o tamanho
-══════════════════════════════════════════════════ */
+*/
 * {
   box-sizing: border-box;
   margin: 0;
@@ -32,9 +31,9 @@
   image-rendering: pixelated;
 }
 
-/* ══════════════════════════════════════════════════
+/*
    BODY - estilo geral da página
-══════════════════════════════════════════════════ */
+*/
 body {
   background-color: var(--fundo);
   color: var(--texto);
@@ -49,15 +48,15 @@ h1, h2, h3, nav, .logo, .label, .eyebrow, .botao, .tipo, .nav-jogar {
   font-family: 'Press Start 2P', monospace;
 }
 
-/* ══════════════════════════════════════════════════
+/*
    SCANLINES - efeito de TV antiga
    position: fixed = fica fixo na tela mesmo ao rolar
    pointer-events: none = não bloqueia cliques
    repeating-linear-gradient = cria listras finas repetidas
-══════════════════════════════════════════════════ */
+*/
 .scanlines {
   position: fixed;
-  inset: 0; /* equivale a top/right/bottom/left: 0 */
+  inset: 0; 
   z-index: 999;
   pointer-events: none;
   background: repeating-linear-gradient(
@@ -69,12 +68,12 @@ h1, h2, h3, nav, .logo, .label, .eyebrow, .botao, .tipo, .nav-jogar {
   );
 }
 
-/* ══════════════════════════════════════════════════
+/*
    NAVEGAÇÃO - barra do topo
    position: sticky = gruda no topo ao rolar
    display: flex = coloca elementos lado a lado
    justify-content: space-between = um em cada extremo
-══════════════════════════════════════════════════ */
+*/
 nav {
   position: sticky;
   top: 0;
@@ -125,9 +124,9 @@ nav a:hover { color: var(--dourado); }
 
 .nav-jogar:hover { background-color: var(--dourado-claro) !important; }
 
-/* ══════════════════════════════════════════════════
-   HERO - primeira seção da página
-══════════════════════════════════════════════════ */
+/*
+   HERO
+*/
 #hero {
   text-align: center;
   padding: 64px 32px;
@@ -193,9 +192,9 @@ nav a:hover { color: var(--dourado); }
 }
 
 
-/* ══════════════════════════════════════════════════
+/*
    BOTÕES
-══════════════════════════════════════════════════ */
+*/
 .botao {
   display: inline-block;
   font-size: 9px;
@@ -234,9 +233,9 @@ nav a:hover { color: var(--dourado); }
   padding: 16px 32px;
 }
 
-/* ══════════════════════════════════════════════════
+/*
    SEÇÕES GERAIS
-══════════════════════════════════════════════════ */
+*/
 section { padding: 64px 32px; }
 
 /* Seções com fundo diferente */
@@ -286,10 +285,10 @@ h2 {
   font-size: 18px;
 }
 
-/* ══════════════════════════════════════════════════
+/*
    CARDS DOS CRISTAIS
    display: grid = divide em 3 colunas iguais (1fr cada)
-══════════════════════════════════════════════════ */
+*/
 .cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -330,11 +329,10 @@ h2 {
 .card.verde h3    { color: var(--verde); }
 .card.vermelho h3 { color: var(--vermelho); }
 
-/* ══════════════════════════════════════════════════
+/*
    GEM PIXEL ART
    Grade 3x3 de divs coloridas formando um losango
-   Os cantos (posições 1,3,7,9) ficam transparentes
-══════════════════════════════════════════════════ */
+*/
 .pixel-gem {
   display: grid;
   grid-template-columns: repeat(3, 12px);
@@ -348,32 +346,15 @@ h2 {
 .verde-gem div    { background: var(--verde); }
 .vermelho-gem div { background: var(--vermelho); }
 
-/* ══════════════════════════════════════════════════
-   BARRAS DE STATUS RPG
-══════════════════════════════════════════════════ */
-.rpg-status {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 10px;
-}
-
-.rpg-label { font-family: 'Press Start 2P', monospace; font-size: 9px; color: var(--dourado); width: 24px; }
-
-.barra-wrap {
-  flex: 1; /* ocupa o espaço restante */
-  height: 14px;
-  background: var(--fundo-claro);
-  border: 2px solid var(--dourado-escuro);
-}
-
-.barra { height: 100%; }
-.barra-hp { width: 100%; background: var(--hp-verde); }
 
 
-/* ══════════════════════════════════════════════════
+
+
+
+
+/*
    HABILIDADES
-══════════════════════════════════════════════════ */
+*/
 .subtitulo-secao { font-size: 10px; color: var(--dourado); margin: 32px 0 16px; }
 
 .habilidades { list-style: none; }
@@ -418,10 +399,10 @@ h2 {
 .rpg-badge.def { background: #0a2a40; border-color: var(--azul);   color: var(--azul); }
 .rpg-badge.mag { background: #1a0a30; border-color: #9b59b6; color: #9b59b6; }
 
-/* ══════════════════════════════════════════════════
+/*
    PERSONA
    display: grid com 2 colunas: avatar fixo + detalhes flexíveis
-══════════════════════════════════════════════════ */
+*/
 .persona-grid {
   display: grid;
   grid-template-columns: 220px 1fr;
@@ -433,7 +414,8 @@ h2 {
 
 /* Avatar pixel art com divs coloridas */
 .pixel-avatar {
-  width: 400px; height: 500px;
+  width: 400px;
+  height: 500px;
   margin: 0 auto 1rem;
   position: relative;
   background: var(--fundo-claro);
@@ -455,7 +437,12 @@ h2 {
 .persona-plataforma { font-family: 'Press Start 2P', monospace; font-size: 7px; color: var(--dourado-escuro); margin-bottom: 16px; border: 2px solid var(--dourado-escuro); padding: 0.3rem; }
 .persona-bio      { font-size: 16px; color: var(--texto-fraco); text-align: center; }
 
-.persona-detalhes { display: flex; flex-direction: column; gap: 1rem; margin-left : 200px; }
+.persona-detalhes {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-left: 200px;
+}
 
 .persona-bloco {
   background-color: var(--fundo-card);
@@ -499,16 +486,16 @@ h2 {
   box-shadow: 3px 3px 0 #000;
 }
 
-/* ══════════════════════════════════════════════════
+/*
    SEÇÃO JOGAR (CTA)
-══════════════════════════════════════════════════ */
+*/
 #jogar { background-color: var(--fundo-medio); border-top: 4px solid var(--dourado-escuro); }
 .jogar-cta { text-align: center; }
 .jogar-cta .linha-pixel { margin: 0 auto 24px; }
 
-/* ══════════════════════════════════════════════════
+/*
    RODAPÉ
-══════════════════════════════════════════════════ */
+*/
 footer {
   text-align: center;
   padding: 40px 32px;
@@ -537,23 +524,39 @@ footer p { font-size: 14px; color: var(--texto-fraco); }
   color: var(--texto-fraco);
 }
 
-/* ══════════════════════════════════════════════════
+/*
    RESPONSIVIDADE - celular (telas menores que 768px)
-   @media = regras que só valem nesse tamanho de tela
-══════════════════════════════════════════════════ */
+*/
 @media (max-width: 768px) {
   nav { padding: 16px; }
   nav ul { display: none; }
   .logo-img { max-width: 90%; }
-  .cards { grid-template-columns: 1fr; }           /* cards em coluna única */
-  .persona-grid { grid-template-columns: 1fr; }    /* avatar acima dos detalhes */
-  .habitos-grid { grid-template-columns: 1fr 1fr; } /* hábitos em 2 colunas */
+  .cards { grid-template-columns: 1fr; }       
+  .persona-grid { grid-template-columns: 1fr; }   
+  .habitos-grid { grid-template-columns: 1fr 1fr; } 
+  .persona-grid {
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.pixel-avatar {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  margin: 0 auto 16px;
+  margin-left: 0;
+}
+
+.persona-detalhes {
+  margin-left: 0;
+}
 }
 
 
-/* ══════════════════════════════════════════════════
+/*
    DARK MODE (tema claro alternativo)
-══════════════════════════════════════════════════ */
+*/
 
 body.dark {
   --fundo: #f5f5f5;
